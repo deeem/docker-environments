@@ -7,6 +7,7 @@
 - composer
 - phpcs
 - phpunit
+- psysh
 
 ## Requirements
 
