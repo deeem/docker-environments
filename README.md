@@ -18,7 +18,7 @@
 Для исходного предназначена папка `src`, для тестов `tests`.
 
 Для удобства использования создан Makefile.
-- `make run file=some-script.php` - запускает скрипт в командной строке
+- `make run some-script.php` - запускает скрипт в командной строке, из папки _src_
 - `make install` - composer устанавливает зависимости, указанные в _composer.json_
 - `make autoload` - аналог **composer dump-autoload**
 - `make lint` - проверяет код на соответсвие стандарту _PSR-2_
