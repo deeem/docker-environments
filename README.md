@@ -2,6 +2,7 @@
 
 ## About
 Окружение для прохождения курсов на hexlet.io.
+
 Содержит:
 - php 7
 - composer
@@ -15,9 +16,9 @@
 
 ## Usage
 
-Для исходного предназначена папка `src`, для тестов `tests`.
+Исходный код размещать в  `src`, тесты в `tests`.
 
-Для удобства использования создан Makefile.
+Для удобства создан Makefile.
 - `make run some-script.php` - запускает скрипт в командной строке, из папки _src_
 - `make install` - composer устанавливает зависимости, указанные в _composer.json_
 - `make autoload` - аналог **composer dump-autoload**
