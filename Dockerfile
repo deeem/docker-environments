@@ -14,9 +14,7 @@ RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 RUN echo "xdebug.remote_enable=on\n" >> /usr/local/etc/php/conf.d/xdebug.ini \
 	&& echo "xdebug.remote_autostart=off\n" >> /usr/local/etc/php/conf.d/xdebug.ini \
-	&& echo "xdebug.remote_port=9000\n" >> /usr/local/etc/php/conf.d/xdebug.ini \
-	&& echo "xdebug.remote_host=192.168.1.6\n" >> /usr/local/etc/php/conf.d/xdebug.ini
-
+	&& echo "xdebug.remote_port=9000\n" >> /usr/local/etc/php/conf.d/xdebug.ini
 
 VOLUME /app
 WORKDIR /app

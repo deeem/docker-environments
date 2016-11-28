@@ -1,5 +1,5 @@
 run:
-	docker run -d -p 8080:8000 -v `pwd`:/app --name=hexlet-http deeem/hexlet-http
+	docker run -d -p 8080:8000 -v `pwd`:/app --name=hexlet-http -e XDEBUG_CONFIG="remote_host=192.168.1.6" deeem/hexlet-http
 install:
 	docker run --rm -v `pwd`:/app composer/composer install
 autoload:
