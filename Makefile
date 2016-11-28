@@ -4,4 +4,6 @@ install:
 	docker run --rm -v `pwd`:/app composer/composer install
 autoload:
 	docker run --rm -v `pwd`:/app composer/composer dump-autoload
+lint:
+	docker exec -it hexlet-http php /app/vendor/bin/phpcs --standard=PSR2 /app/src /app/tests
 
