@@ -1,3 +1,2 @@
-# Docker Environments
+# Laravel docker
 
-Каждое окружение находится в отдельном бренче
