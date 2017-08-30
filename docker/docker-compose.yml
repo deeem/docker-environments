@@ -8,7 +8,7 @@ services:
       depends_on:
         - db
       volumes:
-        - ./:/var/www
+        - ./../laravel:/var/www
       working_dir: /var/www
       restart: always
 
@@ -18,8 +18,8 @@ services:
         dockerfile: web.docker
       depends_on:
         - app
-      volumes:
-        - ./:/var/www        
+      volumes_from:
+        - app
       working_dir: /var/www
       ports:
         - "8080:80"
