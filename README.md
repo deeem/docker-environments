@@ -12,4 +12,4 @@ Application - `http://127.0.0.1:8080`
 
 PHPMyAdmin - `http://127.0.0.1:8081` 
 
-`make artisan` equals `php artisan`. For example, `make artisan migrate`
+`sh artisan` equals `php artisan`. For example, `sh artisan migrate`
