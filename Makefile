@@ -10,3 +10,5 @@ autoload:
 	docker run --rm -v `pwd`/laravel:/app composer/composer dump-autoload
 test:
 	docker-compose -f docker/docker-compose.yml exec app php vendor/bin/phpunit
+logs:
+	docker-compose -f docker/docker-compose.yml logs --follow
