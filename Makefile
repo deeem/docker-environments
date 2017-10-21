@@ -12,3 +12,6 @@ test:
 	docker-compose exec app php vendor/bin/phpunit
 logs:
 	docker-compose logs --follow
+tinker:
+	docker-compose exec app php artisan tinker
+
