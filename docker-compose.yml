@@ -4,18 +4,18 @@ services:
     app:
       build:
         context: .
-        dockerfile: app.docker
+        dockerfile: docker/app.docker
       depends_on:
         - db
       volumes:
-        - ./../laravel:/var/www
+        - ./laravel:/var/www
       working_dir: /var/www
       restart: always
 
     web:
       build:
         context: .
-        dockerfile: web.docker
+        dockerfile: docker/web.docker
       depends_on:
         - app
       volumes_from:
