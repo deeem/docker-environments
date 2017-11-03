@@ -1,9 +1,8 @@
-# HEXLET Student Evnironment CLI
+# PHP CLI
 
 ## About
-Окружение для прохождения курсов на hexlet.io.
 
-Содержит:
+Contains:
 - php 7
 - composer
 - phpcs
@@ -16,11 +15,11 @@
 
 ## Usage
 
-Исходный код размещать в  `src`, тесты в `tests`.
+Put your source code in to `src`, tests in `tests`.
 
-Для удобства создан Makefile.
-- `make run some-script.php` - запускает скрипт в командной строке, из папки _src_
-- `make install` - composer устанавливает зависимости, указанные в _composer.json_
-- `make autoload` - аналог **composer dump-autoload**
-- `make lint` - проверяет код на соответсвие стандарту _PSR-2_
-- `make tests` - запускает тесты phpunit, с конфигурацией из _phpunit.xml.dist_
+Use Makefile for:
+- `make run some-script.php` - runs php script from _src_ directory
+- `make install` - composer install that uses _composer.json_
+- `make autoload` - composer dump-autoload
+- `make lint` - phpcs lint your code with _PSR-2_ standards
+- `make tests` -  phpunit runs test using _phpunit.xml.dist_
