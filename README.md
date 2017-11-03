@@ -35,9 +35,13 @@ DB_PASSWORD=secret
 
 * **Application:** `http://127.0.0.1:8080`
 * **PHPMyAdmin:** `http://127.0.0.1:8081`
-* **Artisan:** `sh artisan` equals `php artisan`. _For example, `sh artisan migrate`_
-* **Tinker:** `make tinker`
+* **Artisan:** `sh artisan` equals `php artisan`. For example, `sh artisan migrate`
 
-### Logs
+### Make arguments:
 
-`make logs` - show logs (Ctr+C to exit)
+* `make tinker` - runs tinker
+* `make test` - runs phpunit tests
+* `make lint` - lint app, config, database and tests directory with phpcs
+* `make install` - composer install
+* `make autoload` - composer autoload
+* `make logs` - show logs (Ctr+C to exit)
