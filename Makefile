@@ -10,8 +10,9 @@ autoload:
 	docker run --rm -v `pwd`/laravel:/app composer/composer dump-autoload
 test:
 	docker-compose exec app php vendor/bin/phpunit
+lint:
+	docker run -v `pwd`/laravel:/scripts texthtml/phpcs phpcs --standard=PSR2 /scripts/app /scripts/config /scripts/database /scripts/tests
 logs:
 	docker-compose logs --follow
 tinker:
 	docker-compose exec app php artisan tinker
-
