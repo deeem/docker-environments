@@ -2,13 +2,15 @@
 
 ## Installation
 
+### New app
+
 * `make laravel` - installs Laravel
 * `make up` - build docker container
 * `cp laravel/.env.example laravel/.env`
 * `sh artisan key:generate`
 * `sudo chmod -R 777 laravel/storage laravel/bootstrap/cache` - fix permission problem.  **WARNING: For local development only**  Security risk
 
-Db connection in `.env` file:
+Db connection in `.env` file if needed:
 ```
 DB_CONNECTION=mysql
 DB_HOST=db
@@ -17,6 +19,17 @@ DB_DATABASE=app
 DB_USERNAME=root
 DB_PASSWORD=secret
 ```
+
+### Import app
+
+* `git clone project_url laravel` - clone existing project in to laravel dir
+* `cp laravel/.env.example laravel/.env`
+* `sudo chmod -R 777 laravel/storage laravel/bootstrap/cache` - fix permission problem.  **WARNING: For local development only**  Security risk
+* `make up` - build docker container
+* `make install` - install laravel and other depedencies from composer.json
+* `sh artisan key:generate`
+* copy DB parameters to `.env`
+* seed tables
 
 ## Usage
 
