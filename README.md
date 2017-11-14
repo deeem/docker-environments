@@ -45,3 +45,24 @@ DB_PASSWORD=secret
 * `make install` - composer install
 * `make autoload` - composer autoload
 * `make logs` - show logs (Ctr+C to exit)
+
+## Testing
+
+`sh phpunit` - runs phpunit, can accept additional parameters (`sh phpunit --filter SomeTest`)
+
+### Web app url
+
+**.env**
+
+```
+APP_URL=http://web
+```
+
+### In memory sqlite db testing
+
+**phpunit.xml**
+
+```
+<env name="DB_CONNECTION" value="sqlite"/>
+<env name="DB_DATABASE" value=":memory:"/>
+```
