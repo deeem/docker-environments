@@ -14,5 +14,3 @@ lint:
 	docker run -v `pwd`/laravel:/scripts texthtml/phpcs phpcs --standard=PSR2 /scripts/app /scripts/tests
 logs:
 	docker-compose logs --follow
-tinker:
-	docker-compose exec app php artisan tinker
