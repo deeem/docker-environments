@@ -3,11 +3,11 @@ up:
 down:
 	docker-compose down
 laravel:
-	docker run --rm -v `pwd`:/app -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro --user=`id -u` composer/composer create-project --prefer-dist laravel/laravel /app/laravel
+	docker run --rm -v `pwd`:/app -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro --user=`id -u` composer create-project --prefer-dist laravel/laravel /app/laravel
 install:
-	docker run --rm -v `pwd`/laravel:/app composer/composer install
+	docker run --rm -v `pwd`/laravel:/app composer install
 autoload:
-	docker run --rm -v `pwd`/laravel:/app composer/composer dump-autoload
+	docker run --rm -v `pwd`/laravel:/app composer dump-autoload
 test:
 	docker-compose exec app php vendor/bin/phpunit
 lint:
