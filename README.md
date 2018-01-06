@@ -28,6 +28,7 @@ DB_PASSWORD=secret
 * `make up` - build docker container
 * `make install` - install laravel and other depedencies from composer.json
 * `sh artisan key:generate`
+* `cp .editorconfig laravel/.editorconfig`
 * copy DB parameters to `.env`
 * seed tables
 
