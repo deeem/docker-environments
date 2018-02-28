@@ -7,5 +7,13 @@
     "psr-4": {
       "App\\":"src/"
     }
+  },
+  "scripts": {
+    "ci": [
+      "@phpcs",
+      "@test"
+    ],
+    "phpcs": "phpcs --standard=PSR2 src",
+    "test": "phpunit"
   }
 }
