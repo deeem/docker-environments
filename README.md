@@ -69,3 +69,48 @@ APP_URL=http://web
 <env name="DB_CONNECTION" value="sqlite"/>
 <env name="DB_DATABASE" value=":memory:"/>
 ```
+
+### Dusk
+#### Install
+
+Get Dusk
+`composer require --dev laravel/dusk`
+
+Register the DuskProvider inside our AppServiceProvider
+```
+/**
+ * Register any application services.
+ *
+ * @return void
+ */
+public function register()
+{
+    if ($this->app->environment('local','testing environment name'){
+      $this->app->register(\Laravel\Dusk\DuskServiceProvider);
+    }
+}
+```
+
+Install Dusk
+`php artisan dusk:install`
+
+In .env file add `APP_URL=http://app`
+
+In DuskTestCase class change return in driver method:
+```php
+return RemoteWebDriver::create(
+  'http://chrome:9515', DesiredCapabilities::chrome()
+);
+```
+
+#### Check Dusk
+
+In ExampleTest add this assertion:
+```php
+$this->browse(function (Browser $browser) {
+    $browser->visit('/')
+            ->assertSee('Laravel');
+});
+```
+
+And run `../artisan dusk`

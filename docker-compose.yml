@@ -22,7 +22,7 @@ services:
         - app
       working_dir: /var/www
       ports:
-        - "8086:80"
+        - "8080:80"
       restart: always
 
     db:
@@ -40,8 +40,19 @@ services:
       links:
         - db:mysql
       ports:
-        - "8087:80"
+        - "8081:80"
       environment:
         PMA_HOST: mysql
         MYSQL_ROOT_PASSWORD: secret
+      restart: always
+      
+    chrome:
+      image: robcherry/docker-chromedriver
+      environment:
+        CHROMEDRIVER_WHITELISTED_IPS: ""
+        CHROMEDRIVER_PORT: "9515"
+      ports:
+        - 9515:9515
+      cap_add:
+        - "SYS_ADMIN"
       restart: always
