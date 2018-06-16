@@ -94,13 +94,20 @@ public function register()
 Install Dusk
 `php artisan dusk:install`
 
-In .env file add `APP_URL=http://app`
-
-In DuskTestCase class change return in driver method:
+In DuskTestCase class change driver() method:
 ```php
+$options = (new ChromeOptions)->addArguments([
+    '--disable-gpu',
+    '--headless',
+    '--no-sandbox',
+    '--ignore-ssl-errors',
+    '--whitelisted-ips=""'
+]);
+
 return RemoteWebDriver::create(
-  'http://chrome:9515', DesiredCapabilities::chrome()
-);
+    'http://selenium:4444/wd/hub', DesiredCapabilities::chrome()->setCapability(
+    ChromeOptions::CAPABILITY, $options
+));
 ```
 
 #### Check Dusk

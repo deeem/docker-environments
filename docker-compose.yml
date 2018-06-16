@@ -45,14 +45,11 @@ services:
         PMA_HOST: mysql
         MYSQL_ROOT_PASSWORD: secret
       restart: always
-      
-    chrome:
-      image: robcherry/docker-chromedriver
-      environment:
-        CHROMEDRIVER_WHITELISTED_IPS: ""
-        CHROMEDRIVER_PORT: "9515"
-      ports:
-        - 9515:9515
-      cap_add:
-        - "SYS_ADMIN"
+
+    selenium:
+      image: selenium/standalone-chrome
+      depends_on:
+       - app
+      volumes:
+       - /dev/shm:/dev/shm
       restart: always
