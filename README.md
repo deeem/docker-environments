@@ -4,11 +4,11 @@
 
 ### New app
 
-* `make laravel` - installs Laravel
-* `make up` - build docker container
-* `cp laravel/.env.example laravel/.env`
+* install laravel `docker run --rm -v `pwd`:/app -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro --user=`id -u` composer create-project --prefer-dist laravel/laravel /app/laravel`
+* start docker `docker-compose up -d`
+* `cp src/.env.example src/.env`
 * `sh artisan key:generate`
-* `sudo chmod -R 777 laravel/storage laravel/bootstrap/cache` - fix permission problem.  **WARNING: For local development only**  Security risk
+* `sudo chmod -R 777 src/storage src/bootstrap/cache` - fix permission problem.  **WARNING: For local development only**  Security risk
 
 Db connection in `.env` file if needed:
 ```
@@ -22,13 +22,13 @@ DB_PASSWORD=secret
 
 ### Import app
 
-* `git clone project_url laravel` - clone existing project in to laravel dir
-* `cp laravel/.env.example laravel/.env`
-* `sudo chmod -R 777 laravel/storage laravel/bootstrap/cache` - fix permission problem.  **WARNING: For local development only**  Security risk
-* `make up` - build docker container
-* `make install` - install laravel and other depedencies from composer.json
+* `git clone project_url src` - clone existing project in to laravel dir
+* `cp src/.env.example src/.env`
+* `sudo chmod -R 777 src/storage src/bootstrap/cache` - fix permission problem.  **WARNING: For local development only**  Security risk
+* start docker `docker-compose up -d`
+* `sh composer install` - install laravel and other depedencies from composer.json
 * `sh artisan key:generate`
-* `cp .editorconfig laravel/.editorconfig`
+* `cp .editorconfig src/.editorconfig`
 * copy DB parameters to `.env`
 * seed tables
 
@@ -38,16 +38,7 @@ DB_PASSWORD=secret
 * **PHPMyAdmin:** `http://127.0.0.1:8081`
 * **Artisan:** `sh artisan` equals `php artisan`. For example, `sh artisan migrate`
 * **Tinker:** `sh tinker` runs tinker
-
-### Make arguments:
-
-* `make test` - runs phpunit tests
-* `make lint` - lint app, config, database and tests directory with phpcs
-* `make install` - composer install
-* `make autoload` - composer autoload
-* `make up` - docker up
-* `make down` - docker down
-* `make logs` - show logs (Ctr+C to exit)
+* **Logs** `docker-compose logs --follow`
 
 ## Testing
 
