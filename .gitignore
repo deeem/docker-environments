@@ -1,2 +1,5 @@
 laravel/
+.idea
+data/
+src/
 
