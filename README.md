@@ -4,7 +4,7 @@
 
 ### New app
 
-* install laravel `docker run --rm -v `pwd`:/app -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro --user=`id -u` composer create-project --prefer-dist laravel/laravel /app/laravel`
+* install laravel `docker run --rm -v `pwd`:/app -v /etc/group:/etc/group:ro -v /etc/passwd:/etc/passwd:ro --user=`id -u` composer create-project --prefer-dist laravel/laravel /app/src`
 * start docker `docker-compose up -d`
 * `cp src/.env.example src/.env`
 * `sh artisan key:generate`
@@ -38,6 +38,7 @@ DB_PASSWORD=secret
 * **PHPMyAdmin:** `http://127.0.0.1:8081`
 * **Artisan:** `sh artisan` equals `php artisan`. For example, `sh artisan migrate`
 * **Tinker:** `sh tinker` runs tinker
+* **Composer:** `sh composer` runs composer
 * **Logs** `docker-compose logs --follow`
 
 ## Testing
