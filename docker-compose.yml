@@ -1,0 +1,63 @@
+version: '3.1'
+
+services:
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/app.docker
+    depends_on:
+      - db
+    volumes:
+      - ./src:/var/www
+    working_dir: /var/www
+    restart: always
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.docker
+    depends_on:
+      - app
+    volumes:
+      - ./src:/var/www
+      - ./data/ssl:/etc/ssl
+    working_dir: /var/www
+    ports:
+      - 8080:80
+      - 4343:443
+    restart: always
+
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./data/dump:/dump
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: forge2
+      POSTGRES_USER: forge
+      POSTGRES_PASSWORD: secret
+
+  cache:
+    image: redis:4.0
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - ./data/redis:/data
+    restart: always
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+
+  selenium:
+    image: selenium/standalone-chrome
+    depends_on:
+      - app
+    volumes:
+      - /dev/shm:/dev/shm
+    restart: always

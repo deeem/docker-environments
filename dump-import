@@ -1,0 +1,2 @@
+#!/bin/bash
+docker-compose exec -u postgres db pg_restore --verbose --clean --no-acl --no-owner -C -d postgres /dump/latest.dump

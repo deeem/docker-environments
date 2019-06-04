@@ -1,0 +1,1 @@
+ssh forge@52.212.63.171 "pg_dump --clean -Z 9 -U forge forge2" | zcat | docker-compose exec -T -u postgres db psql forge2
